@@ -1,12 +1,10 @@
 :root {
-    /* Cores */
     --bg-color: #f9f9f9;
     --bg-dark: #141414;
     --text-color: #333333;
-    --accent-color: #8a2be2; /* Roxo para o detalhe do ponto final (.) */
+    --accent-color: #8a2be2;
     --text-light: #ffffff; /* Texto branco */
     --text-muted: #a0a0a0; /* Texto cinza para descrições e títulos secundários */
-    /* Fontes */
     --font-titles: 'Old Standard TT', serif;
     --font-body: 'Quicksand', sans-serif;
 }
@@ -56,40 +54,38 @@ body {
 }
 
 .hero-section {
-    min-height: calc(100vh - 80px); /* Ocupa quase a tela cheia menos o menu */
+    min-height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Empurra o "See the good stuff" para o rodapé da seção */
+    justify-content: space-between;
     padding: 40px 20px;
 }
 
-.hero-content {
+.hero-main-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
-.hero-title {
+.hero-title .line {
+    display: block;
     font-family: var(--font-titles);
-    font-size: 42px; /* Tamanho confortável para dedão ler no celular */
+    font-size: 46px;
     line-height: 1.1;
     font-weight: 400;
 }
 
-/* O ponto roxo chamativo */
 .dot-purple {
     color: var(--accent-color);
 }
 
 .hero-text {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
-    color: #666; /* Um cinza um pouco mais suave que o preto */
-    max-width: 100%;
+    color: #555;
 }
 
-/* Indicador de rolagem */
 .scroll-indicator {
     display: flex;
     flex-direction: column;
@@ -99,7 +95,6 @@ body {
     margin-top: 40px;
 }
 
-/* Animação simples para a setinha pulsar para baixo */
 .scroll-indicator .arrow {
     color: var(--accent-color);
     font-size: 18px;
@@ -119,7 +114,6 @@ body {
     line-height: 1.2;
 }
 
-/* O "for You" em cinza */
 .text-gray {
     color: var(--text-muted);
 }
@@ -135,10 +129,9 @@ body {
     flex-direction: column;
     gap: 10px;
     padding-bottom: 25px;
-    border-bottom: 1px solid #2a2a2a; /* Linha divisória discreta no celular */
+    border-bottom: 1px solid #2a2a2a;
 }
 
-/* Remove a linha do último card no celular */
 .service-card:last-child {
     border-bottom: none;
 }
@@ -146,12 +139,12 @@ body {
 .service-number {
     font-size: 24px;
     color: var(--text-muted);
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .service-name {
     font-size: 22px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0.5px;
 }
 
@@ -191,25 +184,69 @@ body {
     }
 
     .hero-section {
-        padding: 60px 40px;
+        padding: 40px 80px 60px 80px;
     }
 
-    .hero-content {
-        flex-direction: row; /* Coloca título e texto lado a lado */
-        justify-content: space-between;
+    .hero-main-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
         align-items: flex-start;
+        gap: 3rem;
         margin-top: 80px;
     }
 
     .hero-title {
-        font-size: 80px; /* Título gigante imponente no PC */
-        max-width: 60%; /* Ocupa a maior parte da largura */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-title .line {
+        display: block;
+        line-height: 1;
+    }
+
+    .hero-title .line-bigger {
+        font-size: 7.9375rem;
+        margin-bottom: -1rem;
+        margin-left: 5rem;
+    }
+
+    .hero-title .line-small {
+        font-size: 6.2375rem;
+        margin-bottom: -0.5rem;
+        margin-left: 2rem; 
+    }
+
+    .hero-title .line-medium {
+        font-size: 7rem;
+        margin-left: 7rem;
+    }
+
+    .text-bold {
+        font-weight: 700;
+    }
+
+    .dot-purple {
+        color: var(--accent-color);
+        font-size: 12rem;
+        line-height: 1;
+        display: inline-block;
+        position: absolute;
+        top: 22rem;
+        margin-left: -1rem;
+    }
+
+    .hero-text-wrapper {
+        max-width: 300px;
+        margin-top: 2rem;
+        margin-left: -6.5rem;
     }
 
     .hero-text {
-        font-size: 18px;
-        max-width: 30%; /* Limita o textinho na direita para não espalhar */
-        margin-top: 30px; /* Alinha sutilmente com o topo do H1 */
+        font-size: 1rem;
+        line-height: 1.5;
     }
 
     .services-section {
@@ -223,14 +260,14 @@ body {
 
     .services-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Cria exatamente 3 colunas iguais */
-        gap: 60px 40px; /* 60px de espaço entre linhas, 40px entre colunas */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 60px 40px;
     }
 
     .service-card {
         padding-bottom: 0;
         padding-left: 20px;
-        border-bottom: none; /* Remove a linha horizontal do celular */
-        border-left: 1px solid #333; /* Adiciona a linha vertical elegante na esquerda de cada card */
+        border-bottom: none;
+        border-left: 1px solid #333;
     }
 }
