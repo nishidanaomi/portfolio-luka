@@ -1,0 +1,77 @@
+:root {
+    /* Cores */
+    --bg-color: #f9f9f9;
+    --text-color: #333333;
+    --accent-color: #8a2be2; /* Roxo para o detalhe do ponto final (.) */
+    
+    /* Fontes */
+    --font-main: sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.header-site {
+    width: 100%;
+    padding: 20px 15px;
+}
+
+.header-site nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-site ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.header-site a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.location {
+    border: 1px solid var(--text-color);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+}
+
+@media (min-width: 768px) {
+    .header-site {
+        padding: 20px 40px;
+    }
+
+    .header-site nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .header-site ul {
+        gap: 30px;
+    }
+
+    .header-site a {
+        font-size: 16px;
+    }
+
+    .location {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
