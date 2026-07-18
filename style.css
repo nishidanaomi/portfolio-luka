@@ -31,10 +31,13 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    flex-direction: column-reverse;
 }
 
 .logo {
-    visibility: hidden;
+    border: 1px solid var(--text-color);
+    padding: 8px 20px;
+    border-radius: 50px;
 }
 
 .header-site ul {
@@ -55,6 +58,7 @@ body {
     padding: 8px 20px;
     border-radius: 50px;
     font-size: 13px;
+    visibility: hidden;
 }
 
 .hero-section {
@@ -377,10 +381,6 @@ body {
         justify-content: space-between;
     }
 
-    .logo {
-        visibility: visible;
-    }
-
     .header-site ul {
         gap: 30px;
     }
@@ -389,9 +389,29 @@ body {
         font-size: 16px;
     }
 
+    .logo {
+        transition: background-color 0.1s ease-out, transform 0.5s ease-out;
+    }
+
+    .logo:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.06);
+        border: none;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        color: var(--bg-color);
+    }
+
+    .header-option:hover {
+        font-weight: 700;
+        transition: 0.3 ease;
+        color: var(--accent-color);
+    }
+
     .location {
         padding: 10px 25px;
         font-size: 14px;
+        visibility: visible;
     }
 
     .hero-section {
