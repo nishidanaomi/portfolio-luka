@@ -100,7 +100,7 @@ body {
     line-height: 1;
     display: inline-block;
     position: absolute;
-    top: 20rem;
+    top: 23rem;
     margin-left: -1rem;
 }
 
@@ -524,7 +524,7 @@ body {
     }
 
     .dot-purple {
-        top: 22rem;
+        top: 24rem;
         margin-left: -1rem;
     }
 
