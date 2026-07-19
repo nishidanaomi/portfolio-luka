@@ -501,6 +501,18 @@ body {
 
     .hero-title {
         align-items: flex-start;
+        animation: deslizarLateral 1s ease-out forwards;
+    }
+
+        @keyframes deslizarLateral {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
     }
 
     .hero-title .line {
@@ -525,7 +537,7 @@ body {
     }
 
     .dot-purple {
-        top: 24rem;
+        top: 10rem;
         margin-left: -1rem;
     }
 
