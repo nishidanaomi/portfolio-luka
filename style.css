@@ -66,7 +66,7 @@ body {
     min-height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 3.5rem 1.25rem;
     text-align: center;
 }
@@ -100,7 +100,7 @@ body {
     line-height: 1;
     display: inline-block;
     position: absolute;
-    top: 19rem;
+    top: 20rem;
     margin-left: -1rem;
 }
 
