@@ -13,10 +13,9 @@
 </head>
 
 <body>
-
     <header class="header-site">
         <nav>
-            <a href="https://www.linkedin.com/in/luka-gaglieta-🏳%EF%B8%8F%E2%80%8D⚧%EF%B8%8F-991b45159/"class="logo">Luka Gaglieta</a>
+            <a href="https://www.linkedin.com/in/luka-gaglieta-🏳%EF%B8%8F%E2%80%8D⚧%EF%B8%8F-991b45159/"class="logo" target="_blank" rel="noopener noreferrer">Luka Gaglieta</a>
             <ul>
                 <li><a class="header-option" href="#work">Work</a></li>
                 <li><a class="header-option" href="#contact">Contact</a></li>
@@ -174,7 +173,7 @@
             </div>
         </section>
 
-        <section id="about" class="about-section">
+        <section id="studies" class="about-section">
             <div class="container about-container">
                 
                 <div class="about-content">
@@ -246,7 +245,7 @@
             </div>
         </section>
 
-        <footer class="contact-section">
+        <section id="contact" class="contact-section">
             <div class="contact-container">
                 <div class="contact-left">
                     <h2 class="contact-title">
@@ -274,13 +273,48 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2026 Luka Gaglieta. Todos os direitos reservados.</p>
     </footer>
 
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">&uarr;</button>
+
+    <script>
+        const animationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('run-animation');
+                } else {
+                    entry.target.classList.remove('run-animation');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const titlesToAnimate = document.querySelectorAll('h1, .contact-title');
+        titlesToAnimate.forEach(title => animationObserver.observe(title));
+
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 
 </html>
