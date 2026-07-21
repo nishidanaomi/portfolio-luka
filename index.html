@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -100,7 +101,7 @@
 
                 <div class="projects-list">
                     
-                    <article class="project-item">
+                    <article class="project-item" data-project="mequi">
                         <div class="project-info">
                             <h3 class="project-title">The Town</h3>
                             <p class="project-subtitle">Méqui</p>
@@ -111,7 +112,7 @@
                         <span class="project-agency">Galeria Ag</span>
                     </article>
 
-                    <article class="project-item">
+                    <article class="project-item" data-project="bradesco">
                         <div class="project-info">
                             <h3 class="project-title">Bradesco</h3>
                         </div>
@@ -121,7 +122,7 @@
                         <span class="project-agency">Fq Brasil</span>
                     </article>
 
-                    <article class="project-item">
+                    <article class="project-item" data-project="bmg">
                         <div class="project-info">
                             <h3 class="project-title">Social Media</h3>
                             <p class="project-subtitle">Bmg</p>
@@ -132,7 +133,7 @@
                         <span class="project-agency">Ref+</span>
                     </article>
 
-                    <article class="project-item">
+                    <article class="project-item" data-project="tatuape">
                         <div class="project-info">
                             <h3 class="project-title">Motion</h3>
                             <p class="project-subtitle">Tatuapé Complex.</p>
@@ -143,7 +144,7 @@
                         <span class="project-agency">Fq Brasil</span>
                     </article>
 
-                    <article class="project-item">
+                    <article class="project-item" data-project="sp">
                         <div class="project-info">
                             <h3 class="project-title">Motion</h3>
                             <p class="project-subtitle">São Paulo's Anniversary</p>
@@ -154,7 +155,7 @@
                         <span class="project-agency">Fq Brasil</span>
                     </article>
 
-                    <article class="project-item">
+                    <article class="project-item" data-project="qualidy">
                         <div class="project-info">
                             <h3 class="project-title">Social Media</h3>
                             <p class="project-subtitle">Qualidy</p>
@@ -226,7 +227,7 @@
                         <div class="photo-column">
                             <div class="gallery-item"><img src="images/luka-photograph-03.jpg" alt="Fotografia  de uma menina sentada na escada do metrô"></div>
                             <div class="gallery-item"><img src="images/luka-photograph-05.jpg" alt="Fotografia do da vista do céu com árvores"></div>
-                            <div class="gallery-item"><img src="images/luka-photograph-12.jpg" alt="Fotografia de menina com fundo vermelho"></div>
+                            <div class="gallery-item" ><img src="images/luka-photograph-12.jpg" alt="Fotografia de menina com fundo vermelho"></div>
                             <div class="gallery-item"><img src="images/luka-photograph-09.jpg" alt="Fotografia de menina ouvindo musica no parque"></div>
                         </div>
 
@@ -237,7 +238,7 @@
                             <div class="gallery-item"><img src="images/luka-photograph-08.jpg" alt="Fotografia de menina escutando música com headphone"></div>
                             <div class="red-photos-row">
                                 <div class="gallery-item"><img src="images/luka-photograph-10.jpg" alt="Fotografia de menina sob luz vermelha"></div>
-                                <div class="gallery-item"><img src="images/luka-photograph-11.jpg" alt="Fotografia de menina com fundo vermelho"></div>
+                                <div class="gallery-item" ><img src="images/luka-photograph-11.jpg" alt="Fotografia de menina com fundo vermelho"></div>
                             </div>
                         </div>
                     </div>
@@ -280,41 +281,22 @@
         <p>&copy; 2026 Luka Gaglieta. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Modal Dinâmico -->
+    <div id="imageModal" class="modal" aria-hidden="true">
+        <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+        <div class="modal-wrapper">
+            <div class="modal-body" id="modalBody">
+                <!-- As imagens/vídeos serão inseridos aqui pelo JS -->
+            </div>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal" aria-hidden="true">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Imagem ampliada">
+    </div>
+
     <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">&uarr;</button>
-
-    <script>
-        const animationObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('run-animation');
-                } else {
-                    entry.target.classList.remove('run-animation');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        const titlesToAnimate = document.querySelectorAll('h1, .contact-title');
-        titlesToAnimate.forEach(title => animationObserver.observe(title));
-
-        const backToTopBtn = document.getElementById('backToTop');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
 </body>
 
 </html>
