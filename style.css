@@ -351,6 +351,17 @@ body {
     flex-direction: column;
 }
 
+.modal-vimeo-player {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: none;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
 .modal-close {
     position: absolute;
     top: 20px;

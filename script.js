@@ -45,7 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
             { type: 'image', src: 'images/mequi-the-town-ponto-de-onibus-sp.png', alt: 'Méqui Abrigo de Ônibus' }
         ],
         bradesco: [
-            { type: 'image', src: 'images/bradesco-fq-brasil.png', alt: 'Banco Bradesco - Desafie o Futuro' }
+            { 
+                type: 'vimeo',
+                src: 'https://player.vimeo.com/video/515484105?h=cc1941a109&loop=1&autopause=0&muted=1&autoplay=1',
+                alt: 'Banco Bradesco - Desafie o Futuro' }
         ],
         bmg: [
             //primeira fileira
@@ -101,10 +104,17 @@ document.addEventListener('DOMContentLoaded', () => {
             { type: 'video', src: 'videos/bmg-reel-04.mp4' }
         ],
         tatuape: [
-            { type: 'image', src: 'images/motion-tatuape-complex-fq-brasil.png', alt: 'Motion Complexo Tatuapé' }
+            {
+                type: 'grid-row',
+                columns: 2,
+                vimeos: [
+                    { src: 'https://player.vimeo.com/video/515514947?h=942d83090b&loop=1&autopause=0&muted=1&autoplay=1', alt: 'Motion Complexo Tatuapé' },
+                    { src: 'https://player.vimeo.com/video/515514947?h=942d83090b&loop=1&autopause=0&muted=1&autoplay=1', alt: 'Motion Complexo Tatuapé' },
+                ]
+            },
         ],
         sp: [
-            { type: 'image', src: 'images/motion-sao-paulo-aniversario-fq-brasil.png', alt: 'Motion Aniversário São Paulo' }
+            { type: 'vimeo', src: 'https://player.vimeo.com/video/515520889?h=687beb297b&loop=1&autopause=0&muted=1&autoplay=1', alt: 'Motion Aniversário São Paulo' }
         ],
         qualidy: [
             { type: 'image', src: 'images/social-media-qualidy-atua-ag.png', alt: 'Social Media Qualidy' }
@@ -145,6 +155,18 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
 
                         modalBody.appendChild(rowDiv);
+
+                    } else if (media.type === 'vimeo') {
+                        const iframe = document.createElement('iframe');
+                        iframe.src = media.src;
+                        iframe.title = media.alt || 'Vídeo do Vimeo';
+                        iframe.className = 'modal-vimeo-player';
+                        iframe.setAttribute('frameborder', '0');
+                        iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+                        iframe.setAttribute('allowfullscreen', '');
+                        
+                        modalBody.appendChild(iframe);
+
                     } else if (media.type === 'image') {
                             const img = document.createElement('img');
                             img.src = media.src;
@@ -161,6 +183,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             modalBody.appendChild(video);
                         }
                     });
+                } else if(media.type === 'video') {
+                    const video = document.createElement('video');
+                    video.src = media.src;
+                    video.controls = true;
+                    video.autoplay = true;
+                    video.muted = true;
+                    video.className = 'modal-content-item';
+                    modalBody.appendChild(video);
                 }
                 // ELSE: Foto simples da galeria (Pega direto do HTML!)
                 else {
