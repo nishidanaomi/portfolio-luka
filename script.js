@@ -17,8 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     titlesToAnimate.forEach(title => animationObserver.observe(title));
 
 
-    /* 
-        BOTÃO BACK TO TOP */
+    /* BOTÃO BACK TO TOP */
     const backToTopBtn = document.getElementById('backToTop');
 
     if (backToTopBtn) {
@@ -49,25 +48,48 @@ document.addEventListener('DOMContentLoaded', () => {
             { type: 'image', src: 'images/bradesco-fq-brasil.png', alt: 'Banco Bradesco - Desafie o Futuro' }
         ],
         bmg: [
-            // { type: 'image', src: 'images/social-media-banco-bmg-ref-plus.png', alt: 'Social Media Banco Bmg' },
-            // 1. Bloco de Imagens estáticas (posts)
-            { type: 'image', src: 'images/luka-bmg-01-Antecipe-o-saldo-parado-na-sua-conta-do-FGTS-com-segurança-e-tranquilidade--_Contrate-online-pelo-link-da-bio-e-garanta-uma-das-melhores-taxas-do-mercado-no-Banco-Bmg!--BancoBmg-FGTS.png', alt: 'Posts Social Media Banco Bmg' },
-            { type: 'image', src: 'images/luka-bmg-02-A-biometria-facial.png', alt: 'Posts Social Media Banco Bmg' },
+            //primeira fileira
+            {   
+                type: 'grid-row',
+                columns: 2,
+                images: [
+                    { src: 'images/luka-bmg-01-Antecipe-o-saldo-parado-na-sua-conta-do-FGTS-com-segurança-e-tranquilidade--_Contrate-online-pelo-link-da-bio-e-garanta-uma-das-melhores-taxas-do-mercado-no-Banco-Bmg!--BancoBmg-FGTS.png', alt: 'Antecipe seu saque-aniversário Banco BMG' },
+                    { src: 'images/luka-bmg-02-A-biometria-facial.png', alt: 'Biometria facial Banco BMG' }
+                ]
+            },
 
             //segunda fileira
-            { type: 'image', src: 'images/luka-bmg-03-golpe_01.png', alt: 'Posts Social Media Banco Bmg' },
-            { type: 'image', src: 'images/luka-bmg-04-golpe_02.png', alt: 'Posts Social Media Banco Bmg' },
-            { type: 'image', src: 'images/luka-bmg-05-golpe_03.png', alt: 'Posts Social Media Banco Bmg' },
+            {
+                 type: 'grid-row',
+                 columns: 3,
+                 images: [
+                    { src: 'images/luka-bmg-03-golpe_01.png', alt: 'Alerta de golpe Banco Bmg' },
+                    { src: 'images/luka-bmg-04-golpe_02.png', alt: 'Pedido de senhas Banco Bmg' },
+                    { src: 'images/luka-bmg-05-golpe_03.png', alt: 'Mensagem estranha Banco Bmg' },
+                 ]
+            },
 
             //terceira fileira
-            { type: 'image', src: 'images/luka-bmg-06-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Banco Bmg' },
-            { type: 'image', src: 'images/luka-bmg-07-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Banco Bmg' },
-            { type: 'image', src: 'luka-bmg-08-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Instagram Media Banco Bmg' },
-            { type: 'image', src: 'images/luka-bmg-09-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Banco Bmg' },
+            {
+                 type: 'grid-row',
+                 columns: 4,
+                 images: [
+                    { src: 'images/luka-bmg-06-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Taxa Selic 1 Banco Bmg' },
+                    { src: 'images/luka-bmg-07-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Taxa Selic 2 Banco Bmg' },
+                    { src: 'luka-bmg-08-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Taxa Selic 3 Banco Bmg' },
+                    { src: 'images/luka-bmg-09-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Taxa Selic 4 Banco Bmg' },
+                 ]
+            },
 
             //quarta fileira
-            { type: 'image', src: 'images/luka-bmg-10-3dicas.png', alt: 'Posts Social Media Banco Bmg' },
-            { type: 'image', src: 'images/luka-bmg-11-cartao-limite-certo.png', alt: 'Posts Social Media Banco Bmg' },
+            {
+                type: 'grid-row',
+                columns: 2, // Fileira 4: 2 colunas
+                images: [
+                    { src: 'images/luka-bmg-10-3dicas.png', alt: 'Posts Social Media Banco Bmg' },
+                    { src: 'images/luka-bmg-11-cartao-limite-certo.png', alt: 'Posts Social Media Banco Bmg' },
+                ]
+            },
 
             // 2. Título ou separador (opcional, pode ser feito via imagem ou texto no CSS)
 
@@ -111,7 +133,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 // SE: Projeto complexo cadastrado no JS (Méqui, BMG, etc.)
                 if (mediaList) {
                     mediaList.forEach(media => {
-                        if (media.type === 'image') {
+                        if (media.type === 'grid-row') {
+                        const rowDiv = document.createElement('div');
+                        rowDiv.className = `bmg-row cols-${media.columns}`;
+
+                        media.images.forEach(imgData => {
+                            const img = document.createElement('img');
+                            img.src = imgData.src;
+                            img.alt = imgData.alt || 'Imagem BMG';
+                            rowDiv.appendChild(img);
+                        });
+
+                        modalBody.appendChild(rowDiv);
+                    } else if (media.type === 'image') {
                             const img = document.createElement('img');
                             img.src = media.src;
                             img.alt = media.alt || 'Imagem do projeto';

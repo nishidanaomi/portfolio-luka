@@ -262,6 +262,32 @@ body {
     color: var(--text-muted);
 }
 
+.bmg-row {
+    display: grid;
+    width: 100%;
+    gap: 4px;
+}
+
+.bmg-row.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.bmg-row.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.bmg-row.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+}
+
+.bmg-row img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
 .modal {
     position: fixed;
     top: 0;
