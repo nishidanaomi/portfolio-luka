@@ -10,13 +10,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-
     <header class="header-site">
         <nav>
-            <a href="https://www.linkedin.com/in/luka-gaglieta-🏳%EF%B8%8F%E2%80%8D⚧%EF%B8%8F-991b45159/"class="logo">Luka Gaglieta</a>
+            <a href="https://www.linkedin.com/in/luka-gaglieta-🏳%EF%B8%8F%E2%80%8D⚧%EF%B8%8F-991b45159/"class="logo" target="_blank" rel="noopener noreferrer">Luka Gaglieta</a>
             <ul>
                 <li><a class="header-option" href="#work">Work</a></li>
                 <li><a class="header-option" href="#contact">Contact</a></li>
@@ -46,7 +46,7 @@
             </div>
         </section>
 
-        <section id="work" class="services-section">
+        <section class="services-section">
             <div class="service-content">
                 <h2 class="services-title">Here’s What I Can Do <span class="text-gray">for You</span></h2>
 
@@ -91,7 +91,7 @@
             </div>
         </section>
 
-        <section id="projects" class="projects-section">
+        <section  id="work" class="projects-section">
             <div class="container">        
                 <div class="projects-keywords">
                     <span class="keyword">Design.</span>
@@ -101,7 +101,7 @@
 
                 <div class="projects-list">
                     
-                    <article class="project-item">
+                    <article class="project-item" data-project="mequi">
                         <div class="project-info">
                             <h3 class="project-title">The Town</h3>
                             <p class="project-subtitle">Méqui</p>
@@ -112,7 +112,7 @@
                         <span class="project-agency">Galeria Ag</span>
                     </article>
 
-                    <article class="project-item">
+                    <article class="project-item" data-project="bradesco">
                         <div class="project-info">
                             <h3 class="project-title">Bradesco</h3>
                         </div>
@@ -122,7 +122,7 @@
                         <span class="project-agency">Fq Brasil</span>
                     </article>
 
-                    <article class="project-item">
+                    <article class="project-item" data-project="bmg">
                         <div class="project-info">
                             <h3 class="project-title">Social Media</h3>
                             <p class="project-subtitle">Bmg</p>
@@ -133,7 +133,7 @@
                         <span class="project-agency">Ref+</span>
                     </article>
 
-                    <article class="project-item">
+                    <article class="project-item" data-project="tatuape">
                         <div class="project-info">
                             <h3 class="project-title">Motion</h3>
                             <p class="project-subtitle">Tatuapé Complex.</p>
@@ -144,7 +144,7 @@
                         <span class="project-agency">Fq Brasil</span>
                     </article>
 
-                    <article class="project-item">
+                    <article class="project-item" data-project="sp">
                         <div class="project-info">
                             <h3 class="project-title">Motion</h3>
                             <p class="project-subtitle">São Paulo's Anniversary</p>
@@ -155,7 +155,7 @@
                         <span class="project-agency">Fq Brasil</span>
                     </article>
 
-                    <article class="project-item">
+                    <article class="project-item" data-project="qualidy">
                         <div class="project-info">
                             <h3 class="project-title">Social Media</h3>
                             <p class="project-subtitle">Qualidy</p>
@@ -174,7 +174,7 @@
             </div>
         </section>
 
-        <section id="about" class="about-section">
+        <section id="studies" class="about-section">
             <div class="container about-container">
                 
                 <div class="about-content">
@@ -227,7 +227,7 @@
                         <div class="photo-column">
                             <div class="gallery-item"><img src="images/luka-photograph-03.jpg" alt="Fotografia  de uma menina sentada na escada do metrô"></div>
                             <div class="gallery-item"><img src="images/luka-photograph-05.jpg" alt="Fotografia do da vista do céu com árvores"></div>
-                            <div class="gallery-item"><img src="images/luka-photograph-12.jpg" alt="Fotografia de menina com fundo vermelho"></div>
+                            <div class="gallery-item" ><img src="images/luka-photograph-12.jpg" alt="Fotografia de menina com fundo vermelho"></div>
                             <div class="gallery-item"><img src="images/luka-photograph-09.jpg" alt="Fotografia de menina ouvindo musica no parque"></div>
                         </div>
 
@@ -238,7 +238,7 @@
                             <div class="gallery-item"><img src="images/luka-photograph-08.jpg" alt="Fotografia de menina escutando música com headphone"></div>
                             <div class="red-photos-row">
                                 <div class="gallery-item"><img src="images/luka-photograph-10.jpg" alt="Fotografia de menina sob luz vermelha"></div>
-                                <div class="gallery-item"><img src="images/luka-photograph-11.jpg" alt="Fotografia de menina com fundo vermelho"></div>
+                                <div class="gallery-item" ><img src="images/luka-photograph-11.jpg" alt="Fotografia de menina com fundo vermelho"></div>
                             </div>
                         </div>
                     </div>
@@ -246,7 +246,7 @@
             </div>
         </section>
 
-        <footer class="contact-section">
+        <section id="contact" class="contact-section">
             <div class="contact-container">
                 <div class="contact-left">
                     <h2 class="contact-title">
@@ -274,13 +274,29 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2026 Luka Gaglieta. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Modal Dinâmico -->
+    <div id="imageModal" class="modal" aria-hidden="true">
+        <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+        <div class="modal-wrapper">
+            <div class="modal-body" id="modalBody">
+                <!-- As imagens/vídeos serão inseridos aqui pelo JS -->
+            </div>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal" aria-hidden="true">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Imagem ampliada">
+    </div>
+
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">&uarr;</button>
 </body>
 
 </html>
