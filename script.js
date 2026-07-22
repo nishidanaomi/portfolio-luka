@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* 1. ANIMAÇÃO DE TÍTULOS AO ROLAR (INTERSECTION OBSERVER) */
+    /*  ANIMAÇÃO DE TÍTULOS AO ROLAR (INTERSECTION OBSERVER) */
     const animationObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* 
-       2. BOTÃO BACK TO TOP */
+        BOTÃO BACK TO TOP */
     const backToTopBtn = document.getElementById('backToTop');
 
     if (backToTopBtn) {
@@ -39,17 +39,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* 3. DADOS DOS PROJETOS PRINCIPAIS */
+    /*  DADOS DOS PROJETOS PRINCIPAIS */
     const projectsData = {
         mequi: [
             { type: 'image', src: 'images/mequi-the-town-galeria-ag.png', alt: 'Méqui + The Town' },
-            { type: 'image', src: 'images/mequi-the-town-ponto-de-onibus-sp.png', alt: 'Méqui Abrigo de Ônibus' } 
+            { type: 'image', src: 'images/mequi-the-town-ponto-de-onibus-sp.png', alt: 'Méqui Abrigo de Ônibus' }
         ],
         bradesco: [
             { type: 'image', src: 'images/bradesco-fq-brasil.png', alt: 'Banco Bradesco - Desafie o Futuro' }
         ],
         bmg: [
-            { type: 'image', src: 'images/social-media-banco-bmg-ref-plus.png', alt: 'Social Media Banco Bmg' }
+            // { type: 'image', src: 'images/social-media-banco-bmg-ref-plus.png', alt: 'Social Media Banco Bmg' },
+            // 1. Bloco de Imagens estáticas (posts)
+            { type: 'image', src: 'images/luka-bmg-01-Antecipe-o-saldo-parado-na-sua-conta-do-FGTS-com-segurança-e-tranquilidade--_Contrate-online-pelo-link-da-bio-e-garanta-uma-das-melhores-taxas-do-mercado-no-Banco-Bmg!--BancoBmg-FGTS.png', alt: 'Posts Social Media Banco Bmg' },
+            { type: 'image', src: 'images/luka-bmg-02-A-biometria-facial.png', alt: 'Posts Social Media Banco Bmg' },
+
+            //segunda fileira
+            { type: 'image', src: 'images/luka-bmg-03-golpe_01.png', alt: 'Posts Social Media Banco Bmg' },
+            { type: 'image', src: 'images/luka-bmg-04-golpe_02.png', alt: 'Posts Social Media Banco Bmg' },
+            { type: 'image', src: 'images/luka-bmg-05-golpe_03.png', alt: 'Posts Social Media Banco Bmg' },
+
+            //terceira fileira
+            { type: 'image', src: 'images/luka-bmg-06-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Banco Bmg' },
+            { type: 'image', src: 'images/luka-bmg-07-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Banco Bmg' },
+            { type: 'image', src: 'luka-bmg-08-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Instagram Media Banco Bmg' },
+            { type: 'image', src: 'images/luka-bmg-09-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Banco Bmg' },
+
+            //quarta fileira
+            { type: 'image', src: 'images/luka-bmg-10-3dicas.png', alt: 'Posts Social Media Banco Bmg' },
+            { type: 'image', src: 'images/luka-bmg-11-cartao-limite-certo.png', alt: 'Posts Social Media Banco Bmg' },
+
+            // 2. Título ou separador (opcional, pode ser feito via imagem ou texto no CSS)
+
+            // 3. Reels/Vídeos
+            { type: 'heading', text: 'Reels' },
+            { type: 'video', src: 'videos/bmg-cofrinho.mp4' },
+            { type: 'video', src: 'videos/bmg-reel-02.mp4' },
+            { type: 'video', src: 'videos/bmg-reel-03.mp4' },
+            { type: 'video', src: 'videos/bmg-reel-04.mp4' }
         ],
         tatuape: [
             { type: 'image', src: 'images/motion-tatuape-complex-fq-brasil.png', alt: 'Motion Complexo Tatuapé' }
@@ -63,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    /* 4. LÓGICA DO MODAL (PROJETOS & GALERIA) */
+    /*  LÓGICA DO MODAL (PROJETOS & GALERIA) */
     const modal = document.getElementById('imageModal');
     const modalBody = document.getElementById('modalBody');
     const closeModalBtn = document.getElementById('modalClose');
@@ -81,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Limpa o conteúdo anterior do modal
                 modalBody.innerHTML = '';
 
-                // CASO 1: Projeto complexo cadastrado no JS (Méqui, BMG, etc.)
+                // SE: Projeto complexo cadastrado no JS (Méqui, BMG, etc.)
                 if (mediaList) {
                     mediaList.forEach(media => {
                         if (media.type === 'image') {
@@ -100,8 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             modalBody.appendChild(video);
                         }
                     });
-                } 
-                // CASO 2: Foto simples da galeria (Pega direto do HTML!)
+                }
+                // ELSE: Foto simples da galeria (Pega direto do HTML!)
                 else {
                     const innerImg = item.querySelector('img');
                     if (innerImg) {
@@ -125,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.classList.remove('open');
             modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = ''; // Destrava a rolagem
-            
+
             // Pausa possíveis vídeos em execução ao fechar
             const videos = modalBody.querySelectorAll('video');
             videos.forEach(v => v.pause());
