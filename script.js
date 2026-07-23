@@ -94,9 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ]
             },
 
-            // 2. Título ou separador (opcional, pode ser feito via imagem ou texto no CSS)
-
-            // 3. Reels/Vídeos
+            // Reels/Vídeos
             { type: 'heading', text: 'Reels' },
             { type: 'video', src: 'videos/bmg-cofrinho.mp4' },
             { type: 'video', src: 'videos/bmg-reel-02.mp4' },
@@ -108,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 type: 'grid-row',
                 columns: 2,
                 vimeos: [
-                    { src: 'https://player.vimeo.com/video/515514947?h=942d83090b&loop=1&autopause=0&muted=1&autoplay=1', alt: 'Motion Complexo Tatuapé' },
+                    { src: 'https://player.vimeo.com/video/515516194?h=d5687ace07&loop=1&autopause=0&muted=1&autoplay=1', alt: 'Motion Complexo Tatuapé' },
                     { src: 'https://player.vimeo.com/video/515514947?h=942d83090b&loop=1&autopause=0&muted=1&autoplay=1', alt: 'Motion Complexo Tatuapé' },
                 ]
             },
@@ -140,40 +138,62 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Limpa o conteúdo anterior do modal
                 modalBody.innerHTML = '';
 
-                // SE: Projeto complexo cadastrado no JS (Méqui, BMG, etc.)
+                // CASO 1: Projeto cadastrado no JS (Méqui, BMG, Tatuapé, Bradesco, etc.)
                 if (mediaList) {
                     mediaList.forEach(media => {
-                        if (media.type === 'grid-row') {
-                        const rowDiv = document.createElement('div');
-                        rowDiv.className = `bmg-row cols-${media.columns}`;
-
-                        media.images.forEach(imgData => {
-                            const img = document.createElement('img');
-                            img.src = imgData.src;
-                            img.alt = imgData.alt || 'Imagem BMG';
-                            rowDiv.appendChild(img);
-                        });
-
-                        modalBody.appendChild(rowDiv);
-
-                    } else if (media.type === 'vimeo') {
-                        const iframe = document.createElement('iframe');
-                        iframe.src = media.src;
-                        iframe.title = media.alt || 'Vídeo do Vimeo';
-                        iframe.className = 'modal-vimeo-player';
-                        iframe.setAttribute('frameborder', '0');
-                        iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
-                        iframe.setAttribute('allowfullscreen', '');
                         
-                        modalBody.appendChild(iframe);
+                        // 1. GRID-ROW (Suporta Imagens OU Vídeos do Vimeo lado a lado)
+                        if (media.type === 'grid-row') {
+                            const rowDiv = document.createElement('div');
+                            rowDiv.className = `bmg-row cols-${media.columns}`;
 
-                    } else if (media.type === 'image') {
+                            // Se a fileira tiver imagens (ex: BMG)
+                            if (media.images) {
+                                media.images.forEach(imgData => {
+                                    const img = document.createElement('img');
+                                    img.src = imgData.src;
+                                    img.alt = imgData.alt || 'Imagem do projeto';
+                                    rowDiv.appendChild(img);
+                                });
+                            } 
+                            // Se a fileira tiver vídeos do Vimeo (Tatuapé)
+                            else if (media.vimeos) {
+                                media.vimeos.forEach(vimeoData => {
+                                    const iframe = document.createElement('iframe');
+                                    iframe.src = vimeoData.src;
+                                    iframe.title = vimeoData.alt || 'Vídeo Vimeo';
+                                    iframe.className = 'modal-vimeo-grid-item';
+                                    iframe.setAttribute('frameborder', '0');
+                                    iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+                                    iframe.setAttribute('allowfullscreen', '');
+                                    rowDiv.appendChild(iframe);
+                                });
+                            }
+
+                            modalBody.appendChild(rowDiv);
+                        } 
+                        // 2. VIMEO ÚNICO (Bradesco)
+                        else if (media.type === 'vimeo') {
+                            const iframe = document.createElement('iframe');
+                            iframe.src = media.src;
+                            iframe.title = media.alt || 'Vídeo do Vimeo';
+                            iframe.className = 'modal-vimeo-player';
+                            iframe.setAttribute('frameborder', '0');
+                            iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+                            iframe.setAttribute('allowfullscreen', '');
+                            
+                            modalBody.appendChild(iframe);
+                        } 
+                        // 3. IMAGEM ÚNICA (Méqui, Qualidy)
+                        else if (media.type === 'image') {
                             const img = document.createElement('img');
                             img.src = media.src;
                             img.alt = media.alt || 'Imagem do projeto';
                             img.className = 'modal-content-item';
                             modalBody.appendChild(img);
-                        } else if (media.type === 'video') {
+                        } 
+                        // 4. VÍDEO MP4 LOCAL
+                        else if (media.type === 'video') {
                             const video = document.createElement('video');
                             video.src = media.src;
                             video.controls = true;
@@ -183,16 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             modalBody.appendChild(video);
                         }
                     });
-                } else if(media.type === 'video') {
-                    const video = document.createElement('video');
-                    video.src = media.src;
-                    video.controls = true;
-                    video.autoplay = true;
-                    video.muted = true;
-                    video.className = 'modal-content-item';
-                    modalBody.appendChild(video);
-                }
-                // ELSE: Foto simples da galeria (Pega direto do HTML!)
+                } 
+                // CASO 2: Fotos simples da Galeria (Lê direto do HTML!)
                 else {
                     const innerImg = item.querySelector('img');
                     if (innerImg) {
