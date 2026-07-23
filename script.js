@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 type: 'grid-row',
                 columns: 2,
                 images: [
-                    { src: 'images/luka-bmg-01-Antecipe-o-saldo-parado-na-sua-conta-do-FGTS-com-segurança-e-tranquilidade--_Contrate-online-pelo-link-da-bio-e-garanta-uma-das-melhores-taxas-do-mercado-no-Banco-Bmg!--BancoBmg-FGTS.png', alt: 'Antecipe seu saque-aniversário Banco BMG' },
+                    { src: 'images/luka-bmg-01-Antecipe-o-saldo-parado-na-sua-conta-do-FGTS.png', alt: 'Antecipe seu saque-aniversário Banco BMG' },
                     { src: 'images/luka-bmg-02-A-biometria-facial.png', alt: 'Biometria facial Banco BMG' }
                 ]
             },
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                  images: [
                     { src: 'images/luka-bmg-06-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Taxa Selic 1 Banco Bmg' },
                     { src: 'images/luka-bmg-07-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Taxa Selic 2 Banco Bmg' },
-                    { src: 'luka-bmg-08-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Taxa Selic 3 Banco Bmg' },
+                    { src: 'images/luka-bmg-08-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Taxa Selic 3 Banco Bmg' },
                     { src: 'images/luka-bmg-09-m,-apresenta-a-nova-taxa-Selic.png', alt: 'Posts Social Media Instagram Taxa Selic 4 Banco Bmg' },
                  ]
             },
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 columns: 2, // Fileira 4: 2 colunas
                 images: [
                     { src: 'images/luka-bmg-10-3dicas.png', alt: 'Posts Social Media Banco Bmg' },
-                    { src: 'images/luka-bmg-11-cartao-limite-certo.png', alt: 'Posts Social Media Banco Bmg' },
+                    { src: 'images/luka-bmg-11-cartao-limite-certo.jpg', alt: 'Posts Social Media Banco Bmg' },
                 ]
             },
 
