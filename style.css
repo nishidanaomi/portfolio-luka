@@ -1026,19 +1026,20 @@ footer {
     .hero-title {
         position: relative;
         display: inline-block;
+        
     }
 
-    .hero-title .line-bigger {
-        font-size: clamp(6.5rem, 8vw, 10rem);
+    .h.hero-title .line-bigger {
+        font-size: 10rem;
         margin-bottom: -0.5rem;
     }
 
     .hero-title .line-small {
-        font-size: clamp(5rem, 6.2vw, 8rem);
+        font-size: 8rem;
     }
 
     .hero-title .line-medium {
-        font-size: clamp(5.5rem, 7vw, 9rem);
+        font-size: 9rem;
     }
 
     .dot-purple {
@@ -1046,10 +1047,11 @@ footer {
         right: -2rem; 
         bottom: 5rem;
         left: auto;
+        margin-left: 0;
     }
     
     .hero-text {
-        font-size: clamp(15px, 1.1vw, 18px);
+        font-size: 18px;
     }
 }
 
